@@ -51,9 +51,12 @@ func (t *Task) quit() {
 	panic(1)
 }
 func (t *Task) kill() {
-	if redata := KillProcess(t.Command); redata != "" {
+	if data, err := KillProcess(t.Command); err == nil {
 		t.Result["status"] = "true"
-		t.Result["data"] = redata
+		t.Result["data"] = data
+	} else {
+		t.Result["status"] = "false"
+		t.Result["data"] = err.Error()
 	}
 }
 func (t *Task) uninstall() {
