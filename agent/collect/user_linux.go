@@ -17,7 +17,7 @@ func GetUser() (resultData []map[string]string) {
 	if len(userList) < 2 {
 		return
 	}
-	for _, info := range userList[0 : len(userList)-2] {
+	for _, info := range userList[0 : len(userList)-1] {
 		if strings.Contains(info, "/nologin") {
 			continue
 		}
