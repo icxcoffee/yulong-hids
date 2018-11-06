@@ -55,7 +55,6 @@ func (t *Task) kill() {
 		t.Result["status"] = "true"
 		t.Result["data"] = data
 	} else {
-		t.Result["status"] = "false"
 		t.Result["data"] = err.Error()
 	}
 }
